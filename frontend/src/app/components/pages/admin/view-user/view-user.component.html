@@ -1,0 +1,32 @@
+<div *ngIf="error">
+  <div class="alert alert-danger">
+    <span class="fw-bold">Error!</span> {{error}}
+  </div>
+</div>
+
+<div *ngIf="!error && data" class="row">
+
+  <div class="p-2 col-12">
+    <h3 class="m-0 text-light p-3 rounded bg-gradient-1">Data of <span class="fw-lighter">{{data.user.username}}</span></h3>
+  </div>
+
+  <div class="p-2 col-12">
+    <button routerLink="/admin/dashboard" class="btn btn-primary">
+      <fa-icon [icon]="faArrowLeft"></fa-icon>
+    </button>
+    <button *ngIf="!data.user.isAdmin" [disabled]="yourself" (click)="onDelete()" class="ms-2 btn btn-danger">
+      <fa-icon [icon]="faTrash"></fa-icon> Delete
+    </button>
+
+    <button *ngIf="!data.user.isAdmin" [disabled]="yourself" (click)="onToggleAdmin($event)" class="ms-2 btn btn-danger">
+      <fa-icon [icon]="faUserPlus"></fa-icon> Promote to admin
+    </button>
+    <button *ngIf="data.user.isAdmin" [disabled]="yourself" (click)="onToggleAdmin($event)" class="ms-2 btn btn-primary">
+      <fa-icon [icon]="faUserMinus"></fa-icon> Demote to user
+    </button>
+  </div>
+
+  <app-user-detail [id]="data.user.id" class="p-2 col-12 col-xl-6"></app-user-detail>
+  <app-reset-password [id]="data.user.id" class="p-2 col-12 col-xl-6"></app-reset-password>
+
+</div>

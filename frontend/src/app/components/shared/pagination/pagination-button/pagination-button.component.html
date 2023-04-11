@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-center align-items-center">
+  <button [disabled]="!hasLast" (click)="pageBack()" class="btn btn-primary m-2">
+    <fa-icon [icon]="arrowLeft"></fa-icon>
+  </button>
+  <div style="height: 36px; width: 38px" class="user-select-none badge bg-primary d-flex justify-content-center align-items-center">
+    <app-loading-spinner [small]="true" *ngIf="isLoading"></app-loading-spinner>
+    <span *ngIf="!isLoading">{{page}}</span>
+  </div>
+  <button [disabled]="!hasNext" (click)="pageForward()" class="btn btn-primary m-2">
+    <fa-icon [icon]="arrowRight"></fa-icon>
+  </button>
+</div>

@@ -1,0 +1,9 @@
+.stats-table th, .stats-table td {
+  font-size: 30px !important;
+  padding: 10px;
+}
+
+.stats-table th {
+  color: var(--bs-light);
+  text-align: end;
+}

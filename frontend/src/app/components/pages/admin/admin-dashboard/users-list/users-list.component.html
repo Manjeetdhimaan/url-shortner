@@ -1,0 +1,43 @@
+<div class="w-100 border rounded overflow-hidden">
+  <h4 class="text-light border-bottom p-3 mb-0 bg-gradient-1">User list</h4>
+
+  <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+
+  <div class="overflow-x-scroll hide-scrollbar" *ngIf="!isLoading">
+
+    <app-pagination-info [pagination]="pagination" *ngIf="userList != null && userList.length > 0 && pagination.maxPages > 1"></app-pagination-info>
+
+    <table class="table table-dark table-striped m-0" *ngIf="userList != null && userList.length > 0">
+      <thead class="border-bottom border-secondary">
+        <tr>
+          <th>Username</th>
+          <th>Group</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of userList; let i = index">
+          <td>
+            {{user.username}}
+          </td>
+          <td>
+            {{user.isAdmin ? "Admin" : "User"}}
+          </td>
+          <td class="h-100 ">
+            <div class="d-flex justify-content-end">
+              <div>
+                <button routerLink="/admin/view-user/{{user.id}}" class="mx-1 btn btn-primary"><fa-icon [icon]="faEye"></fa-icon></button>
+              </div>
+              <div (click)="deleteUser(user.id)" >
+                <button [ngClass]="{'btn-dark': user.isAdmin}" [disabled]="user.isAdmin" class="mx-1 btn btn-danger"><fa-icon [icon]="faTrash"></fa-icon></button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-pagination-button [isLoading]="isReLoading" (pageSwitchEvent)="onPageSwitch($event)" [pagination]="pagination" *ngIf="userList != null && userList.length > 0 && pagination.maxPages > 1"></app-pagination-button>
+
+</div>

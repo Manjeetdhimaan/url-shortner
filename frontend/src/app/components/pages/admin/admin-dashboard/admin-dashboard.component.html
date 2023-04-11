@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="p-2 col-12">
+    <h3 class="m-0 text-light p-3 rounded bg-gradient-1">Admin dashboard</h3>
+  </div>
+
+  <div class="p-2 col-12">
+    <button routerLink="/dashboard" class="btn btn-primary">
+      <fa-icon [icon]="faArrowLeft"></fa-icon>
+    </button>
+  </div>
+
+  <app-users-list [newAdd]="newAdd" class="p-2 col-12 col-xl-6"></app-users-list>
+  <app-create-user (addedNewUser)="onAddedNewUser($event)" class="p-2 col-12 col-xl-6"></app-create-user>
+</div>

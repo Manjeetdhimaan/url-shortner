@@ -1,0 +1,24 @@
+<div *ngIf="error">
+  <div class="alert alert-danger">
+    <span class="fw-bold">Error!</span> {{error}}
+  </div>
+</div>
+
+<div *ngIf="!error" class="row">
+
+  <div class="p-2 col-12">
+    <h3 class="m-0 text-light p-3 rounded bg-gradient-1">Data of <span class="fw-lighter">{{shorturl}}</span></h3>
+  </div>
+
+  <div class="p-2 col-12">
+    <button routerLink="/dashboard" class="btn btn-large btn-primary">
+      <fa-icon [icon]="faArrowLeft"></fa-icon>
+    </button>
+    <button (click)="onDelete()" class="ms-2 btn btn-large btn-danger">
+      <fa-icon [icon]="faTrash"></fa-icon> Delete
+    </button>
+  </div>
+
+  <app-url-detail [shorturl]="shorturl" class="p-2 col-12 col-xl-6"></app-url-detail>
+  <app-url-access-list [shorturl]="shorturl" class="p-2 col-12 col-xl-6"></app-url-access-list>
+</div>
