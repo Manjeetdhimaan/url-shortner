@@ -1,5 +1,5 @@
-<app-header></app-header>
-<main class="pt-1" >
+<app-header *ngIf="showHeaderAndFooter"></app-header>
+<main class="pt-1" [style]="!showHeaderAndFooter ? 'background-color: white': ''">
   <div class="container">
     <router-outlet></router-outlet>
   </div>
@@ -7,4 +7,4 @@
   <app-toast></app-toast>
 </main>
 
-<app-footer></app-footer>
+<app-footer *ngIf="showHeaderAndFooter"></app-footer>

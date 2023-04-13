@@ -61,7 +61,7 @@ export class ShortenerComponent implements OnInit {
   }
 
   successAddingUrl(data: {message: string, data: {url: Url}}) {
-    this.shorturl = window.location.origin + '/' + data.data.url.shorturl;
+    this.shorturl = window.location.origin + '/i/' + data.data.url.shorturl;
     this.isLoading = false;
     this.addedNewUrl.emit(data.data.url);
   }

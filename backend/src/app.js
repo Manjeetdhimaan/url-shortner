@@ -2,6 +2,7 @@ require('dotenv').config();                       // load environment variables
 
 const express = require('express');
 const app = express();
+const path = require('path');
 
 const cors = require('cors');                     // to configure cors
 const morgan = require('morgan');                 // for logging
@@ -41,9 +42,15 @@ app.use(express.json());                        // JSON parser
 
 app.use(process.env.API_ENDPOINT_PREFIX, authJwt, routes); // /api/* routes
 
-app.all('*', (req, res) => {                    // Default route
-  res.status(404).json({"error":"route not found"});
+app.use(express.static(path.join(__dirname, 'www')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'www/index.html'));
 });
+
+// app.all('*', (req, res) => {                    // Default route
+//   res.status(404).json({"error":"route not found"});
+// });
 
 app.listen(port, () => {
   console.log('[INIT] started on port ' + port);
