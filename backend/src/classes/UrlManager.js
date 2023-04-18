@@ -2,7 +2,7 @@ const Url = require('./Url');
 
 const UrlModel = require('../models/url');
 
-const randomString = require('randomString');
+const randomString = require('randomstring');
 
 class UrlManager {
     static async getCount() {

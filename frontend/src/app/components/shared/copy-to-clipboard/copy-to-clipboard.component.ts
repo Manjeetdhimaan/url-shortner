@@ -29,5 +29,4 @@ export class CopyToClipboardComponent implements OnInit {
       message: "Successfully copied to clipboard",
     });
   }
-
 }
