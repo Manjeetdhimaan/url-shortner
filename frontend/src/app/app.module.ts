@@ -36,6 +36,7 @@ import { ToastComponent } from './components/shared/toast/toast.component';
 import { CopyToClipboardComponent } from './components/shared/copy-to-clipboard/copy-to-clipboard.component';
 import { PaginationButtonComponent } from './components/shared/pagination/pagination-button/pagination-button.component';
 import { PaginationInfoComponent } from './components/shared/pagination/pagination-info/pagination-info.component';
+import { ConfirmModelComponent } from './components/shared/confirm-model/confirm-model.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { PaginationInfoComponent } from './components/shared/pagination/paginati
     CopyToClipboardComponent,
     PaginationButtonComponent,
     PaginationInfoComponent,
+    ConfirmModelComponent,
   ],
   imports: [
     BrowserModule,

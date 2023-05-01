@@ -1,20 +1,5 @@
 <!-- MODAL START -->
-<div class="user-select-none modal d-block" style="background-color: rgba(0,0,0, 0.7);" *ngIf="modalData.state == 1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content bg-dark border-light">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5">{{modalData.title}}</h1>
-      </div>
-      <div class="modal-body text-light">
-        {{modalData.text}}
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" (click)="onConfirmModal()">{{modalData.confirmBtnText}}</button>
-        <button type="button" class="btn btn-secondary" (click)="onModalClose()">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+<app-confirm-model [modalTypes]="modalTypes" [modalData]="modalData" (confirmModelEmit)="onConfirmModal()"></app-confirm-model>
 <!-- MODAL END -->
 
 <div class="w-100 border rounded overflow-hidden">

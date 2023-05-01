@@ -1,7 +1,11 @@
+@import '~animate.css/animate.css';
+
 :root {
   --bs-primary: #237890;
   --bs-primary-rgb: 35, 120, 144;
 }
+
+@import '~animate.css/animate.css';
 
 /* remove ugly bootstrap focus outline/border/shadow*/
 input:focus,input:active {

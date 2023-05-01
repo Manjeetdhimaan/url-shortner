@@ -27,46 +27,42 @@ export class DangerSettingsComponent implements OnInit {
     private userService: UserService,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
 
   }
 
-  onModalClose() {
-    this.resetModel();
-  }
 
   private launchModal(title: string, text: string, confirmBtnText: string, type: number) {
     this.modalData.title = title;
     this.modalData.text = text;
     this.modalData.confirmBtnText = confirmBtnText;
     this.modalData.type = type;
-    if(this.modalData.state == 0) {
+    if (this.modalData.state == 0) {
       this.modalData.state++;
       return;
     }
   }
 
-  private resetModel() {
-    this.modalData.state = 0;
-    this.modalData.title = '';
-    this.modalData.text = '';
-    this.modalData.type = this.modalTypes.default
-  }
-
   onConfirmModal() {
-    if(this.modalData.type == this.modalTypes.account) {
+    if (this.modalData.type == this.modalTypes.account) {
       // delete account
       this.confirmDeleteAccount();
-    } else if(this.modalData.type == this.modalTypes.url) {
+    } else if (this.modalData.type == this.modalTypes.url) {
       // delete urls
       this.confirmDeleteUrls();
     }
-    this.resetModel();
   }
 
   onDeleteAllUrls() {
+    // this.modalData = {
+    //   state: this.modalTypes.default,
+    //   type: this.modalTypes.url,
+    //   title: "Are you sure?",
+    //   text: "Are you sure you want to delete all your Urls?",
+    //   confirmBtnText: "Yes, delete them",
+    // }
     this.launchModal('Are you sure?', 'Are you sure you want to delete all your Urls?', 'Yes, delete them', this.modalTypes.url);
   }
 
@@ -79,16 +75,16 @@ export class DangerSettingsComponent implements OnInit {
   }
 
   confirmDeleteAccount() {
-      this.userService.delete(`${localStorage.getItem('userid')}`).subscribe(data => {
-        this.authService.logout();
-        this.router.navigate(['/login']);
-      });
+    this.userService.delete(`${localStorage.getItem('userid')}`).subscribe(data => {
+      this.authService.logout();
+      this.router.navigate(['/login']);
+    });
   }
 
   confirmDeleteUrls() {
-     this.userService.deleteUrls(`${localStorage.getItem('userid')}`).subscribe(data => {
-        this.launchModal("Successfully deleted", "All your URLs are deleted!", "Ok", this.modalTypes.default);
-      });
+    this.userService.deleteUrls(`${localStorage.getItem('userid')}`).subscribe(data => {
+      this.launchModal("Successfully deleted", "All your URLs are deleted!", "Ok", this.modalTypes.default);
+    });
   }
 
 }
