@@ -48,7 +48,7 @@ class Auth {
         };
     }
 
-    static async register(username, password) {
+    static async register(username, email, password) {
         // if username already exists, return
         if(await UserManager.usernameExists(username)){
             return {
@@ -62,7 +62,8 @@ class Auth {
     
         // create new user (write it to database)
         const newUser = await UserManager.create(
-            username, 
+            username,
+            email,
             hashedPassword
         );
 

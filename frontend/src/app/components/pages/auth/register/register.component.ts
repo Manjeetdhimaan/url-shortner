@@ -22,7 +22,8 @@ export class RegisterComponent implements OnInit {
   ) {
     this.form = this.formBuilder.group({
       username: '',
-      password: ''
+      password: '',
+      email: ''
     });
   }
 
@@ -39,13 +40,14 @@ export class RegisterComponent implements OnInit {
     this.isLoading = true;
     const username = this.form.getRawValue().username;
     const password = this.form.getRawValue().password;
+    const email = this.form.getRawValue().email;
 
-    if(username === '' || password === '') {
+    if(username === '' || password === '' || email === '') {
       this.isLoading = false;
       return;
     }
 
-    this.authService.register(username, password)
+    this.authService.register(username, email, password)
     .subscribe({
       next: this.successRegister.bind(this),
       error: this.errorRegister.bind(this)

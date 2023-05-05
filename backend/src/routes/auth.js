@@ -19,7 +19,7 @@ router.get('/loggedin', mustAuthorize, async (req, res) => {
 
 // -> register as a new user
 router.post('/register', async (req, res) => {
-    let {password, username} = req.body;
+    let {password, username, email} = req.body;
 
     // check if username and password was provided
     if(!password || !username) {
@@ -36,7 +36,7 @@ router.post('/register', async (req, res) => {
         return res.status(400).json({status: false, message: "The password is in a wrong format!"});
     }
 
-    const registerAttempt = await Auth.register(username, password);
+    const registerAttempt = await Auth.register(username, email, password);
 
     // if register failed, throw error
     if(!registerAttempt.status) {

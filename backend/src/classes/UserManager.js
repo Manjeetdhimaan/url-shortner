@@ -6,10 +6,11 @@ const bcrypt = require('bcryptjs');
 const UserModel = require('../models/user');
 
 class UserManager {
-    static async create(username, password) {
+    static async create(username, email, password) {
         // build new user
         let user = await new UserModel({
             username: username,
+            email: email,
             password: password,
             isAdmin: false
         });

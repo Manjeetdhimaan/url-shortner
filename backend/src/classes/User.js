@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 class User {
     #id;
     #username;
+    #email;
     #password;
     #isAdmin;
 
@@ -12,6 +13,7 @@ class User {
 
         this.#id = user._id;
         this.#username = user.username;
+        this.#email = user.email;
         this.#password = user.password;
         this.#isAdmin = user.isAdmin;
     }

@@ -24,7 +24,8 @@ export class CreateUserComponent implements OnInit {
   ) {
     this.createUserForm = this.formBuilder.group({
       username: '',
-      password: ''
+      password: '',
+      email: ''
     });
   }
 
@@ -36,13 +37,14 @@ export class CreateUserComponent implements OnInit {
 
     const username = this.createUserForm.getRawValue().username;
     const password = this.createUserForm.getRawValue().password;
+    const email = this.createUserForm.getRawValue().email;
 
     if(username == '' || password === '') {
       this.isLoading = false;
       return;
     }
 
-    this.authService.register(username, password)
+    this.authService.register(username, email, password)
     .subscribe({
       next: this.successCreateUser.bind(this),
       error: this.errorCreateUser.bind(this)

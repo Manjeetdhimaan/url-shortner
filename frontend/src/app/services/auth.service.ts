@@ -45,8 +45,8 @@ export class AuthService {
     return this.http.post(this.apiEndpoint + 'login', {username: username, password: password}, {});
   }
 
-  register(username: string, password: string) {
-    return this.http.post<{data: {message: any, data: {user: User}} | any}>(this.apiEndpoint + 'register', {username: username, password: password}, {});
+  register(username: string, email: string, password: string) {
+    return this.http.post<{data: {message: any, data: {user: User}} | any}>(this.apiEndpoint + 'register', {username: username, email: email, password: password}, {});
   }
 
   logout(navigate: boolean = true) {

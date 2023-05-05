@@ -80,5 +80,4 @@ export class ViewUserComponent implements OnInit {
       this.router.navigate(['/admin/dashboard']);
     });
   }
-
 }
