@@ -76,6 +76,12 @@ class UserManager {
         return new User(user);
     }
 
+    static async getFromEmail(email) {
+        const user = await UserModel.findOne({email: email});
+        if(!user) return false;
+        return new User(user);
+    }
+
     static async usernameExists(username) {
         return await UserModel.exists({username: username});
     }
