@@ -625,6 +625,9 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ngx-countup
 MIT
 
+ngx-progressbar
+MIT
+
 relative-time-format
 MIT
 (The MIT License)

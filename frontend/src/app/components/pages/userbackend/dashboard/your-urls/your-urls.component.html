@@ -30,7 +30,7 @@
             <fa-icon class="text-primary" [icon]="faArrowAltCircleRight"></fa-icon>
           </td>
           <td>
-            <app-copy-to-clipboard class="me-2" [textToCopy]="localUrl + url.shorturl"></app-copy-to-clipboard>
+            <app-copy-to-clipboard class="me-2" [textToCopy]="localUrl + 'i/' + url.shorturl"></app-copy-to-clipboard>
             <a target="_blank" class="link-light text-decoration-none" href="{{localUrl}}i/{{url.shorturl}}">{{localUrl}}i/{{url.shorturl}}</a>
           </td>
           <td>

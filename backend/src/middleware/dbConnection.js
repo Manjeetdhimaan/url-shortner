@@ -2,7 +2,7 @@ const mongoose = require('mongoose'); // for database
 
 function dbConnection() {
     mongoose.connect(
-        process.env.DB_CONN || "mongodb+srv://manjeetuser:manjeet@employee-database.dxtzx.mongodb.net/urlShorten?retryWrites=true&w=majority", 
+        process.env.TEST_DB_CONN || process.env.DB_CONN || "mongodb+srv://manjeetuser:manjeet@employee-database.dxtzx.mongodb.net/urlShorten?retryWrites=true&w=majority", 
         {
             useNewUrlParser: true,
             useUnifiedTopology: true,

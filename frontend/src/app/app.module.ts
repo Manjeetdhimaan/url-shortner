@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CountUpModule } from 'ngx-countup';
+import { NgProgressModule } from 'ngx-progressbar';
+import { NgProgressHttpModule } from "ngx-progressbar/http";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './components/pages/index/index.component';
 import { RedirectComponent } from './components/pages/redirect/redirect.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { LoginComponent } from './components/pages/auth/login/login.component';
 import { HeaderButtonComponent } from './components/shared/header/header-button/header-button.component';
@@ -79,7 +81,12 @@ import { ConfirmModelComponent } from './components/shared/confirm-model/confirm
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    CountUpModule
+    CountUpModule,
+    NgProgressModule.withConfig({
+      color: "#43cea2",
+      spinner: false
+    }),
+    NgProgressHttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

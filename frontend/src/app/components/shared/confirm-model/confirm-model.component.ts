@@ -38,7 +38,7 @@ export class ConfirmModelComponent implements OnInit {
     this.modalData.text = text;
     this.modalData.confirmBtnText = confirmBtnText;
     this.modalData.type = type;
-    if(this.modalData.state == 0) {
+    if (this.modalData.state == 0) {
       this.modalData.state++;
       return;
     }
@@ -48,7 +48,7 @@ export class ConfirmModelComponent implements OnInit {
     this.modalData.state = 0;
     this.modalData.title = '';
     this.modalData.text = '';
-    this.modalData.type = this.modalTypes.default
+    this.modalData.type = this.modalTypes.default;
   }
 
   onConfirmModal() {
